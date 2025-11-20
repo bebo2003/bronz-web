@@ -23,7 +23,8 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // function to check if a path is active
-  const isActive = (path) => pathname === path;
+  const isActive = (path: string) => pathname === path;
+
 
   return (
     <header className="fixed top-0 right-0 left-0 z-50 w-full text-white overflow-hidden" style={{ direction: "rtl" }}>
