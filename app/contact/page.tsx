@@ -77,13 +77,15 @@ export default function ContactSection() {
 
   {/* === MAP === */}
   <div className="relative w-full h-[450px] rounded-2xl overflow-hidden shadow-xl">
-   <iframe
-  src="..."
-  className="w-full h-full border-0"
-  allowFullScreen={true}  // ✅ صح
-  loading="lazy"
-  referrerPolicy="no-referrer-when-downgrade"
-/>
+ <div className="relative w-full h-[450px] rounded-2xl overflow-hidden shadow-xl">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.553391733144!2d39.614131!3d24.469629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15bd7d8ec92c2c3f%3A0x5c27da89c06e474f!2z2KfYsdmK2Kkg2KfZhNiq2LHZitin2LPZitip!5e0!3m2!1sar!2ssa!4v1700000000000"
+    className="w-full h-full border-0"
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+</div>
 
 
     <div className="absolute inset-0 bg-orange-500/20 mix-blend-multiply pointer-events-none"></div>
