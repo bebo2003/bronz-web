@@ -14,7 +14,9 @@ import Image12 from "../public/car7.jpeg";
 import Image13 from "../public/car8.jpeg";
 import HeroSlider from "./Hero";
 import TestimonialsSlider from './Testimonials';
-import ContactSection from './Contact';
+import { FaWhatsapp } from "react-icons/fa";
+
+import ContactSection from './call';
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -87,15 +89,15 @@ export default function Home() {
             حماية السيارات! في برو رايز مرحبا بكم
           </h1>
 
-          <p className="text-lg leading-8 text-gray-700 mb-4">
+          <p className="text-lg leading-8 text-white mb-4">
             في برو رايز، نحن شغوفون بمساعدتك في الحفاظ على سيارتك في حالة ممتازة...
           </p>
 
-          <p className="text-lg leading-8 text-gray-700 mb-4">
+          <p className="text-lg leading-8 text-white mb-4">
             نقدم خدمات مثل حماية السيارات، وتظليل عازل حراري، وحماية نانو سيراميك.
           </p>
 
-          <p className="text-lg leading-8 text-gray-700 mb-6">
+          <p className="text-lg leading-8 text-white mb-6">
             فريقنا الماهر يقدم نتائج عالية الجودة لنضمن مظهرًا رائعًا وبقاء سيارتك محمية.
           </p>
 
@@ -104,7 +106,7 @@ export default function Home() {
           className="relative inline-block px-6 py-2 font-bold text-[#b87333] bg-gradient-to-r from-[#B08B4F] to-black rounded-full overflow-hidden group"
         >
           <span className="absolute inset-0 w-full h-full bg-white opacity-20 blur-xl animate-cloud"></span>
-          <span className="relative z-10">المزيد من المعرفة</span>
+          <span className="relative z-10 text-white">المزيد من المعرفة</span>
         </a>
 
         </div>
@@ -166,7 +168,7 @@ export default function Home() {
           whileHover={{ scale: 1.07 }}
         >
           <span>اتصل بنا</span>
-          <span className="text-xl">📞</span>
+          <FaWhatsapp className="text-xl" />
 
           {/* لمعة تمر على الزر */}
           <motion.span
@@ -188,7 +190,7 @@ export default function Home() {
       كيف يمكننا مساعدتك؟
     </h2>
 
-    <p className="text-lg text-gray-700 mb-6">
+    <p className="text-lg text-white mb-6">
       حلول سريعة وفعّالة لجميع مشاكل سيارتك.
     </p>
 
@@ -276,7 +278,7 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
 
         {/* Content */}
-        <div className="absolute bottom-10 left-10 max-w-xl">
+        <div className="absolute bottom-10 left-10 max-w-xl text-center">
           <h1 className="text-5xl font-bold mb-3">
             أحدث سيارات 2025 — فخامة بتصميم جديد
           </h1>
@@ -315,7 +317,7 @@ export default function Home() {
 
         <div className="p-6">
           <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-          <p className="text-gray-400 text-sm mb-4">{item.description}</p>
+          <p className="text-white text-sm mb-4">{item.description}</p>
           <span className="text-[#C49A6C] text-xs">{item.date}</span>
         </div>
       </div>

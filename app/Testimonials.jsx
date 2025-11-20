@@ -115,7 +115,7 @@ export default function Testimonials() {
         </button>
       </div>
 
-      <p className="text-center mt-10 text-gray-600 text-sm">
+      <p className="text-center mt-10 text-white text-sm">
         Google rating score: 4.6 of 5, based on 232 reviews
       </p>
     </section>
