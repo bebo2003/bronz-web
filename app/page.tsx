@@ -15,7 +15,7 @@ import Image13 from "../public/car8.jpeg";
 import HeroSlider from "./Hero";
 import TestimonialsSlider from './Testimonials';
 import { FaWhatsapp } from "react-icons/fa";
-
+import Link from "next/link";
 import ContactSection from './call';
 import { motion } from "framer-motion";
 
@@ -106,7 +106,9 @@ export default function Home() {
           className="relative inline-block px-6 py-2 font-bold text-[#b87333] bg-gradient-to-r from-[#B08B4F] to-black rounded-full overflow-hidden group"
         >
           <span className="absolute inset-0 w-full h-full bg-white opacity-20 blur-xl animate-cloud"></span>
-          <span className="relative z-10 text-white">المزيد من المعرفة</span>
+         <Link href="/about" className="relative z-10 text-white">
+  المزيد من المعرفة
+</Link>
         </a>
 
         </div>
@@ -206,9 +208,9 @@ export default function Home() {
           className="w-full h-52 object-cover rounded-xl shadow-md "
           alt="ارضيات جلد للسيارات"
         />
-        <h3 className="mt-4 text-xl font-bold text-[#b87333]">
+      <Link href="/leather">  <h3 className="mt-4 text-xl font-bold text-[#b87333]">
           ارضيات جلد للسيارات
-        </h3>
+        </h3></Link>
       </div>
 
       {/* كرت 2 */}
@@ -218,9 +220,9 @@ export default function Home() {
           className="w-full h-52 object-cover rounded-xl shadow-md"
           alt="تظليل العازل حراري"
         />
-        <h3 className="mt-4 text-xl font-bold text-[#b87333]">
+       <Link href="/tint"> <h3 className="mt-4 text-xl font-bold text-[#b87333]">
           تظليل العازل حراري للسيارات
-        </h3>
+        </h3></Link>
       </div>
 
       {/* كرت 3 */}
@@ -230,9 +232,9 @@ export default function Home() {
           className="w-full h-52 object-cover rounded-xl shadow-md"
           alt="النانو سيراميك"
         />
-        <h3 className="mt-4 text-xl font-bold text-[#b87333]">
+       <Link href="/nano"> <h3 className="mt-4 text-xl font-bold text-[#b87333]">
           النانو سيراميك للسيارات
-        </h3>
+        </h3></Link>
       </div>
 
       {/* كرت 4 */}
@@ -242,9 +244,9 @@ export default function Home() {
           className="w-full h-52 object-cover rounded-xl shadow-md"
           alt="حماية السيارة PPF"
         />
-        <h3 className="mt-4 text-xl font-bold text-[#b87333]">
+        <Link href="/ppf"><h3 className="mt-4 text-xl font-bold text-[#b87333]">
           حماية السيارة PPF
-        </h3>
+        </h3></Link>
       </div>
 
     </div>
@@ -252,11 +254,11 @@ export default function Home() {
     {/* الزر */}
     <div className="mt-12">
           <a
-          href="tel:0123456789"
+         
           className="relative inline-block px-6 py-2 font-bold text-[#f3f0ed] bg-gradient-to-r from-[#B08B4F] to-black rounded-full overflow-hidden group"
         >
           <span className="absolute inset-0 w-full h-full bg-white opacity-20 blur-xl animate-cloud"></span>
-          <span className="relative z-10">عرض جميع الخدمات</span>
+        <Link href="/services">  <span className="relative z-10">عرض جميع الخدمات</span></Link>
         </a>
     </div>
 
