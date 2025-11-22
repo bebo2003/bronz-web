@@ -1,9 +1,8 @@
 "use client";
 import logo from "../../public/logoo.png";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { FiPhone } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 
 import {
@@ -20,18 +19,30 @@ import { HiMenu, HiX } from "react-icons/hi";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
   // function to check if a path is active
   const isActive = (path: string) => pathname === path;
 
+  // Detect scroll to change background
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 w-full text-white overflow-hidden" style={{ direction: "rtl" }}>
-
+    <header
+      className={`fixed top-0 right-0 left-0 z-50 w-full overflow-visible transition-all duration-500 ${
+        isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
+      }`}
+      style={{ direction: "rtl" }}
+    >
       {/* Top Bar */}
-      <div className="flex items-center justify-between px-6 py-2 text-xs md:text-sm w-full max-w-screen-xl mx-auto">
-
+      <div className="flex items-center justify-between px-6 text-xs md:text-sm w-full max-w-screen-xl mx-auto ">
         {/* Social Icons */}
         <div className="hidden md:flex gap-3">
           <FaInstagram className="hover:text-[#CD7F32] cursor-pointer" />
@@ -51,75 +62,74 @@ export default function Navbar() {
       </div>
 
       {/* Main Navbar */}
-      <div className="flex items-center justify-between px-6 py-4 text-sm w-full max-w-screen-xl mx-auto">
+      <div className="flex items-center justify-between px-6 text-sm w-full max-w-screen-xl mx-auto">
 
         {/* Logo */}
-        <div className="flex items-center">
-          <img
-            src={logo.src}
-            alt="Pro Rays Logo"
-            className="h-16 md:h-20 lg:h-24 w-auto"
-          />
-        </div>
+        <img
+          src={logo.src}
+          alt="Pro Rays Logo"
+          className="h-10 md:h-14 lg:h-16 w-auto"
+        />
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center gap-6 text-lg font-semibold whitespace-nowrap">
           <Link
             href="/"
-            className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${isActive("/") ? "text-[#CD7F32]" : "text-white"}`}
+            className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${
+              isActive("/") ? "text-[#CD7F32]" : "text-white"
+            }`}
           >
             الصفحة الرئيسية
           </Link>
 
-          <div className="relative">
-            <button
-              onClick={() => setServicesOpen(!servicesOpen)}
-              className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${pathname.startsWith("/service") ? "text-[#CD7F32]" : "text-white"}`}
-            >
-              خدماتنا ▾
-            </button>
+        {/* خدماتنا Dropdown Desktop */}
+<div className="relative group">
+  <Link
+    href="/services"
+    className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${
+      pathname.startsWith("/services") ? "text-[#CD7F32]" : "text-white"
+    }`}
+  >
+    خدماتنا ▾
+  </Link>
 
-            {servicesOpen && (
-              <div className="absolute right-0 mt-2 bg-black/80 border border-gray-600 rounded shadow-lg w-40 py-2 z-50">
-                <Link href="/service1" className={`block px-4 py-2 hover:bg-gray-800 transition-all ${isActive("/service1") ? "bg-[#CD7F32]/20" : ""}`}>
-                  خدمة 1
-                </Link>
-                <Link href="/service2" className={`block px-4 py-2 hover:bg-gray-800 transition-all ${isActive("/service2") ? "bg-[#CD7F32]/20" : ""}`}>
-                  خدمة 2
-                </Link>
-                <Link href="/service3" className={`block px-4 py-2 hover:bg-gray-800 transition-all ${isActive("/service3") ? "bg-[#CD7F32]/20" : ""}`}>
-                  خدمة 3
-                </Link>
-              </div>
-            )}
-          </div>
+  {/* Dropdown Menu */}
+  <div
+  className="absolute right-0 mt-2 bg-black/90 border border-gray-600 rounded shadow-lg w-60 py-2 z-50
+    opacity-0 scale-95 invisible
+    group-hover:opacity-100 group-hover:scale-100 group-hover:visible
+    transition-all duration-300 transform origin-top"
+>
+  <Link href="/ppf" className="block px-4 py-2 hover:bg-gray-800">
+    حماية السيارة PPF
+  </Link>
+  <Link href="/tint" className="block px-4 py-2 hover:bg-gray-800">
+    تظليل عازل حراري للسيارات
+  </Link>
+  <Link href="/nano" className="block px-4 py-2 hover:bg-gray-800">
+    النانو سيراميك للسيارات
+  </Link>
+  <Link href="/leather" className="block px-4 py-2 hover:bg-gray-800">
+    أرضيات جلد للسيارات
+  </Link>
+</div>
 
-          <Link
-            href="/about"
-            className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${isActive("/about") ? "text-[#CD7F32]" : "text-white"}`}
-          >
-            معلومات عنا
-          </Link>
+</div>
 
-          <Link
-            href="/contact"
-            className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${isActive("/contact") ? "text-[#CD7F32]" : "text-white"}`}
-          >
-            اتصل بنا
-            
-          </Link>
+
+          <Link href="/about" className="hover:text-[#CD7F32]">معلومات عنا</Link>
+          <Link href="/contact" className="hover:text-[#CD7F32]">اتصل بنا</Link>
         </nav>
 
         {/* Call Button (Desktop) */}
-       <a
-  href="https://wa.me/966544339334" // ضع رقمك هنا بصيغة دولية
-  target="_blank"
-  rel="noopener noreferrer"
-  className="hidden md:inline-flex items-center gap-2 px-6 py-2 font-bold text-white bg-gradient-to-r from-[#B08B4F] to-black rounded-full"
->
-  اتصل الآن <FaWhatsapp className="text-xl" />
-</a>
-
+        <a
+          href="https://wa.me/966544339334"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-2 px-6 py-2 font-bold text-white bg-gradient-to-r from-[#B08B4F] to-black rounded-full"
+        >
+          اتصل الآن <FaWhatsapp className="text-xl" />
+        </a>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden text-3xl" onClick={() => setOpen(!open)}>
@@ -128,60 +138,45 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-black/90 backdrop-blur-md py-6 px-6 flex flex-col gap-6 text-lg font-semibold animate-fadeIn">
+      <div
+        className={`md:hidden fixed top-0 right-0 h-screen w-3/4 bg-black/95 backdrop-blur-md p-6 transition-transform duration-300 z-40
+          ${open ? "translate-x-0" : "translate-x-full"}`}
+      >
+        {/* Close Button */}
+        <button
+          className="text-3xl mb-8"
+          onClick={() => setOpen(false)}
+        >
+          <HiX />
+        </button>
 
-          <Link href="/" className={`${isActive("/") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>الصفحة الرئيسية</Link>
+        {/* Links */}
+        <nav className="flex flex-col gap-6 text-white text-lg font-semibold">
+          <Link href="/" onClick={() => setOpen(false)}>الصفحة الرئيسية</Link>
 
-          <button
-            onClick={() => setServicesOpen(!servicesOpen)}
-            className={`flex justify-between items-center ${pathname.startsWith("/service") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}
-          >
-            خدماتنا ▾
-          </button>
-
-          {servicesOpen && (
-            <div className="flex flex-col gap-3 text-sm bg-black/40 p-3 rounded-lg">
-              <Link href="/service1" className={`${isActive("/service1") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>خدمة 1</Link>
-              <Link href="/service2" className={`${isActive("/service2") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>خدمة 2</Link>
-              <Link href="/service3" className={`${isActive("/service3") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>خدمة 3</Link>
+          {/* خدماتنا Mobile Dropdown */}
+          <div className="flex flex-col">
+            <button
+              type="button"
+              onClick={() => setServicesOpen((s) => !s)}
+              className="flex justify-between items-center w-full text-left"
+            >
+              خدماتنا ▾
+            </button>
+            <div
+              className={`flex flex-col ml-4 mt-2 overflow-hidden transition-all duration-300
+                ${servicesOpen ? "max-h-52" : "max-h-0"}`}
+            >
+              <Link href="/service1" className="py-1" onClick={() => setOpen(false)}>خدمة 1</Link>
+              <Link href="/service2" className="py-1" onClick={() => setOpen(false)}>خدمة 2</Link>
+              <Link href="/service3" className="py-1" onClick={() => setOpen(false)}>خدمة 3</Link>
             </div>
-          )}
+          </div>
 
-          <Link href="/about" className={`${isActive("/about") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>معلومات عنا</Link>
-          <Link href="/contact" className={`${isActive("/contact") ? "text-[#CD7F32]" : "text-white"} hover:text-[#CD7F32]`}>اتصل بنا</Link>
-          
-
-          <a
-            href="tel:0123456789"
-            className="px-6 py-3 text-center font-bold bg-gradient-to-r from-[#B08B4F] to-black rounded-full"
-          >
-            اتصل الآن
-            
-          </a>
-           <FaWhatsapp className="text-xl" />
-        </div>
-      )}
-
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes cloudMove {
-          0% { transform: translateX(-50%) translateY(0); }
-          50% { transform: translateX(50%) translateY(-5%); }
-          100% { transform: translateX(-50%) translateY(0); }
-        }
-        .animate-cloud {
-          animation: cloudMove 4s infinite linear;
-        }
-
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease forwards;
-        }
-      `}</style>
+          <Link href="/about" onClick={() => setOpen(false)}>معلومات عنا</Link>
+          <Link href="/contact" onClick={() => setOpen(false)}>اتصل بنا</Link>
+        </nav>
+      </div>
     </header>
   );
 }

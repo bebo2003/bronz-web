@@ -10,7 +10,7 @@ export default function Footer() {
           <img 
             src={img.src}
             alt="logo" 
-            className="w-65 mb-4"
+            className="w-33 mb-4"
           />
           <p className="leading-8 text-gray-300 text-sm">
             في برو رايز، نحن شغوفون بمساعدتك في الحفاظ على سيارتك في حالة ممتازة، يقع مقرنا في المدينة المنورة، 

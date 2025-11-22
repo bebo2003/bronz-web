@@ -33,43 +33,80 @@ export default function ContactSection() {
       </div>
 
       {/* ===== Contact Cards Section ===== */}
-      <div className="py-20">
-        <h2 className="text-center text-3xl md:text-4xl font-bold mb-16">
-          تواصل معنا حماية السيارة المدينة المنورة
-        </h2>
+   <div className="py-20 bg-black">
+  <h2 className="text-center text-3xl md:text-4xl font-extrabold text-white mb-16 relative after:absolute after:w-24 after:h-1 after:bg-[#CD7F32] after:left-1/2 after:-translate-x-1/2 after:bottom-[-10px]">
+    تواصل معنا حماية السيارة المدينة المنورة
+  </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
-          
-          {/* LOCATION CARD */}
-          <div className="shadow-xl rounded-xl p-8 text-center border">
-            <FaLocationDot className="text-5xl mx-auto mb-4 text-[#CD7F32]" />
-            <h3 className="text-2xl font-bold mb-3">الموقع</h3>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
 
-            <p className="text-white leading-relaxed">
-              طريق الأمير محمد بن عبدالعزيز، بني حارثة، مقابل بلدية أحد، المدينة
-              المنورة
-            </p>
+  {/* LOCATION */}
+  <div className="border border-[#CD7F32] rounded-2xl p-6 shadow-md bg-black">
+    <div className="flex justify-between items-start">
+      <h3 className="text-xl font-semibold text-white">الموقع</h3>
 
-            <p className="text-white leading-relaxed mt-4">
-              طريق السلام، مقابل البيك المدينة المنورة 42353
-            </p>
-          </div>
-
-          {/* EMAIL CARD */}
-          <div className=" shadow-xl rounded-xl p-8 text-center border">
-            <MdEmail className="text-5xl mx-auto mb-4 text-[#CD7F32]" />
-            <h3 className="text-2xl font-bold mb-3">Email</h3>
-            <p className="text-white text-lg">info@prorays.me</p>
-          </div>
-
-          {/* PHONE CARD */}
-          <div className=" shadow-xl rounded-xl p-8 text-center border">
-            <FaPhone className="text-5xl mx-auto mb-4 text-[#CD7F32]" />
-            <h3 className="text-2xl font-bold mb-3">Phone</h3>
-            <p className="text-white text-lg">0544339334</p>
-          </div>
-        </div>
+      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow border border-[#CD7F32]">
+        <FaLocationDot className="text-2xl text-[#CD7F32]" />
       </div>
+    </div>
+
+    <p className="text-gray-300 mt-3 leading-relaxed">
+      طريق الأمير محمد بن عبدالعزيز، بني حارثة، مقابل بلدية أحد، المدينة المنورة
+    </p>
+    <p className="text-gray-300 leading-relaxed mt-1">
+      طريق السلام، مقابل البيك المدينة المنورة 42353
+    </p>
+
+    <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
+      تواصل معنا
+    </button>
+
+    <p className="text-gray-500 text-sm mt-2"></p>
+  </div>
+
+  {/* EMAIL */}
+  <div className="border border-[#CD7F32] rounded-2xl p-6 shadow-md bg-black">
+    <div className="flex justify-between items-start">
+      <h3 className="text-xl font-semibold text-white">البريد الإلكتروني</h3>
+
+      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow border border-[#CD7F32]">
+        <MdEmail className="text-2xl text-[#CD7F32]" />
+      </div>
+    </div>
+
+    <p className="text-gray-300 mt-3">info@prorays.me</p>
+
+    <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
+      تواصل معنا
+    </button>
+
+    <p className="text-gray-500 text-sm mt-2"></p>
+  </div>
+
+  {/* PHONE */}
+  <div className="border border-[#CD7F32] rounded-2xl p-6 shadow-md bg-black">
+    <div className="flex justify-between items-start">
+      <h3 className="text-xl font-semibold text-white">رقم الهاتف</h3>
+
+      <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow border border-[#CD7F32]">
+        <FaPhone className="text-2xl text-[#CD7F32]" />
+      </div>
+    </div>
+
+    <p className="text-gray-300 mt-3">0544339334</p>
+
+    <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
+      تواصل معنا
+    </button>
+
+    <p className="text-gray-500 text-sm mt-2"></p>
+  </div>
+
+</div>
+
+
+</div>
+
 
      {/* ===== Contact Form + Map ===== */}
 {/* === MAP (Simple Orange Styled) === */}
@@ -92,52 +129,53 @@ export default function ContactSection() {
   </div>
 
   {/* === FORM === */}
-  <div className="bg-black/70 p-8 rounded-2xl shadow-xl text-white backdrop-blur-md max-w-md w-full mx-auto">
-    <form className="flex flex-col gap-5">
+ <div className="bg-black/95 p-8 rounded-2xl shadow-xl text-white backdrop-blur-md max-w-md w-full mx-auto mb-20">
+  <form className="flex flex-col gap-5 ">
 
-      <label className="flex flex-col">
-        <span className="mb-1 text-sm text-white">اسمك</span>
-        <input
-          className="p-3 rounded-lg bg-white/80 text-black outline-none focus:ring-2 focus:ring-[#B08B4F]"
-          type="text"
-          placeholder="اكتب اسمك"
-        />
-      </label>
+    <label className="flex flex-col">
+      <span className="mb-1 text-sm text-white">اسمك</span>
+      <input
+        className="p-3 rounded-lg bg-white/10 text-white outline-none focus:ring-2 focus:ring-[#B08B4F]"
+        type="text"
+        placeholder="اكتب اسمك"
+      />
+    </label>
 
-      <label className="flex flex-col">
-        <span className="mb-1 text-sm text-white">بريدك الإلكتروني</span>
-        <input
-          className="p-3 rounded-lg bg-white/80 text-black outline-none focus:ring-2 focus:ring-[#B08B4F]"
-          type="email"
-          placeholder="example@gmail.com"
-        />
-      </label>
+    <label className="flex flex-col">
+      <span className="mb-1 text-sm text-white">بريدك الإلكتروني</span>
+      <input
+        className="p-3 rounded-lg bg-white/10 text-white outline-none focus:ring-2 focus:ring-[#B08B4F]"
+        type="email"
+        placeholder="example@gmail.com"
+      />
+    </label>
 
-      <label className="flex flex-col">
-        <span className="mb-1 text-sm text-white">الموضوع</span>
-        <input
-          className="p-3 rounded-lg bg-white/80 text-black outline-none focus:ring-2 focus:ring-[#B08B4F]"
-          type="text"
-          placeholder="عن ماذا تريد الاستفسار؟"
-        />
-      </label>
+    <label className="flex flex-col">
+      <span className="mb-1 text-sm text-white">الموضوع</span>
+      <input
+        className="p-3 rounded-lg bg-white/10 text-white outline-none focus:ring-2 focus:ring-[#B08B4F]"
+        type="text"
+        placeholder="عن ماذا تريد الاستفسار؟"
+      />
+    </label>
 
-      <label className="flex flex-col">
-        <span className="mb-1 text-sm text-white">رسالتك</span>
-        <textarea
-          className="p-3 h-28 rounded-lg bg-white/80 text-black outline-none focus:ring-2 focus:ring-[#B08B4F]"
-          placeholder="اكتب رسالتك هنا..."
-        ></textarea>
-      </label>
+    <label className="flex flex-col">
+      <span className="mb-1 text-sm text-white">رسالتك</span>
+      <textarea
+        className="p-3 h-28 rounded-lg bg-white/10 text-white outline-none focus:ring-2 focus:ring-[#B08B4F]"
+        placeholder="اكتب رسالتك هنا..."
+      ></textarea>
+    </label>
 
-      <button
-        className="w-full py-3 font-bold rounded-lg bg-gradient-to-r from-[#B08B4F] to-black text-white hover:opacity-90 transition"
-        type="submit"
-      >
-        إرسال
-      </button>
-    </form>
-  </div>
+    <button
+      className="w-full py-3 font-bold rounded-lg bg-gradient-to-r from-[#B08B4F] to-black text-white hover:opacity-90 transition"
+      type="submit"
+    >
+      إرسال
+    </button>
+  </form>
+</div>
+
 
 </div>
 
