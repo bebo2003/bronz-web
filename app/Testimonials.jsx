@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 const reviews = [
   {
@@ -24,6 +24,16 @@ const reviews = [
     time: "1 year ago",
     text: "حسن الاستقبال و اتقان في العمل و جودة واحترافيه. الف شكر.",
   },
+  {
+    name: "عميل جديد 1",
+    time: "6 months ago",
+    text: "خدمة ممتازة جدا وسريعة.",
+  },
+  {
+    name: "عميل جديد 2",
+    time: "3 months ago",
+    text: "أنصح الجميع بتجربة الخدمة لديهم.",
+  },
 ];
 
 const Star = () => (
@@ -34,10 +44,31 @@ const Star = () => (
 
 export default function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [visibleCount, setVisibleCount] = useState(4);
 
-  const prev = () =>
+  // تحديث عدد الكروت حسب حجم الشاشة
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setVisibleCount(1);
+      else if (window.innerWidth < 1024) setVisibleCount(2);
+      else setVisibleCount(4);
+    };
+
+    handleResize(); // initial
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const prev = () => {
     setIndex((i) => (i - 1 + reviews.length) % reviews.length);
-  const next = () => setIndex((i) => (i + 1) % reviews.length);
+  };
+
+  const next = () => {
+    setIndex((i) => (i + 1) % reviews.length);
+  };
+
+  // حساب translateX بناء على عدد الكروت المرئية
+  const translateX = -(index * (100 / visibleCount));
 
   return (
     <section dir="rtl" className="py-20 text-[#b87333]">
@@ -45,43 +76,39 @@ export default function Testimonials() {
       <div className="text-center mb-10 px-4">
         <h2 className="text-4xl font-bold">ماذا يقول العميل عنا</h2>
         <div className="w-28 h-1 bg-[#cd7f32] mx-auto mt-4"></div>
-        <p className="text-white mt-4 text-lg">
-          شهادات العملاء تعكس جودة خدماتنا
-        </p>
+        <p className="text-white mt-4 text-lg">شهادات العملاء تعكس جودة خدماتنا</p>
       </div>
 
       {/* Slider container */}
-      <div className="relative max-w-3xl mx-auto px-4">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="bg-gradient-to-b from-[#B08B4F] to-black border shadow-md rounded-2xl p-6 text-white"
-          >
-            {/* Name + Google */}
-            <div className="flex justify-between items-center mb-3">
-              <div>
-                <h3 className="font-semibold text-lg">{reviews[index].name}</h3>
-                <p className="text-sm">{reviews[index].time}</p>
+      <div className="relative overflow-hidden max-w-6xl mx-auto px-4">
+        <motion.div
+          className="flex gap-6"
+          animate={{ x: `${translateX}%` }}
+          transition={{ duration: 0.5 }}
+        >
+          {reviews.concat(reviews).map((review, i) => (
+            <div
+              key={i}
+              className={`flex-none w-full sm:w-1/2 lg:w-1/4 bg-gradient-to-b from-[#B08B4F] to-black border shadow-md rounded-2xl p-6 text-white`}
+            >
+              <div className="flex justify-between items-center mb-3">
+                <div>
+                  <h3 className="font-semibold text-lg">{review.name}</h3>
+                  <p className="text-sm">{review.time}</p>
+                </div>
+                <div className="w-8 h-8 bg-[#cd7f32] flex items-center justify-center rounded-full font-bold">
+                  G
+                </div>
               </div>
 
-              <div className="w-8 h-8 bg-[#cd7f32] flex items-center justify-center rounded-full font-bold">
-                G
+              <div className="flex gap-1 mb-3">
+                <Star /> <Star /> <Star /> <Star /> <Star />
               </div>
-            </div>
 
-            {/* Stars */}
-            <div className="flex gap-1 mb-3">
-              <Star /> <Star /> <Star /> <Star /> <Star />
+              <p className="leading-relaxed">{review.text}</p>
             </div>
-
-            {/* Text */}
-            <p className="leading-relaxed">{reviews[index].text}</p>
-          </motion.div>
-        </AnimatePresence>
+          ))}
+        </motion.div>
 
         {/* Arrows */}
         <button
