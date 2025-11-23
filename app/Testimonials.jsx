@@ -1,39 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
 
 const reviews = [
-  {
-    name: "Ali Aldakhil",
-    time: "1 year ago",
-    text: "طلبت عندهم سيارتي و ما شاء الله التظليل مزبوط. الشغل كان سريع و المعامله كانت احترافيه. الله يباركلهم في شغلهم يارب.",
-  },
-  {
-    name: "محمد الشهري",
-    time: "1 year ago",
-    text: "غني عن التعريف أنا ثالث سياره أضبطها عندهم شغلهم جبار.",
-  },
-  {
-    name: "سعيد الحربي",
-    time: "1 year ago",
-    text: "صراحه عزل رائع من أفضل ما يكون.",
-  },
-  {
-    name: "خالد الزهراني",
-    time: "1 year ago",
-    text: "حسن الاستقبال و اتقان في العمل و جودة واحترافيه. الف شكر.",
-  },
-  {
-    name: "عميل جديد 1",
-    time: "6 months ago",
-    text: "خدمة ممتازة جدا وسريعة.",
-  },
-  {
-    name: "عميل جديد 2",
-    time: "3 months ago",
-    text: "أنصح الجميع بتجربة الخدمة لديهم.",
-  },
+  { name: "علي الشهراني", time: "1 year ago", text: "طلبت عندهم سيارتي و ما شاء الله التظليل مزبوط." },
+  { name: "محمد الشهري", time: "1 year ago", text: "غني عن التعريف أنا ثالث سياره أضبطها عندهم شغلهم جبار." },
+  { name: "سعيد الحربي", time: "1 year ago", text: "صراحه عزل رائع من أفضل ما يكون." },
+  { name: "خالد الزهراني", time: "1 year ago", text: "حسن الاستقبال و اتقان في العمل و جودة واحترافيه. الف شكر." },
+  { name: "زياد مشعل", time: "6 months ago", text: "خدمة ممتازة جدا وسريعة." },
+  { name: "عبدالرحنت محمد", time: "3 months ago", text: "أنصح الجميع بتجربة الخدمة لديهم." },
 ];
 
 const Star = () => (
@@ -43,53 +19,48 @@ const Star = () => (
 );
 
 export default function Testimonials() {
-  const [index, setIndex] = useState(0);
-  const [visibleCount, setVisibleCount] = useState(4);
+  const scrollRef = useRef(null);
 
-  // تحديث عدد الكروت حسب حجم الشاشة
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) setVisibleCount(1);
-      else if (window.innerWidth < 1024) setVisibleCount(2);
-      else setVisibleCount(4);
+    const scrollContainer = scrollRef.current;
+    let animationFrame;
+
+    const speed = 0.5; // pixels per frame
+    const loop = () => {
+      if (scrollContainer) {
+        scrollContainer.scrollLeft += speed;
+        // reset scroll for seamless loop
+        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+          scrollContainer.scrollLeft = 0;
+        }
+      }
+      animationFrame = requestAnimationFrame(loop);
     };
 
-    handleResize(); // initial
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    animationFrame = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animationFrame);
   }, []);
 
-  const prev = () => {
-    setIndex((i) => (i - 1 + reviews.length) % reviews.length);
-  };
-
-  const next = () => {
-    setIndex((i) => (i + 1) % reviews.length);
-  };
-
-  // حساب translateX بناء على عدد الكروت المرئية
-  const translateX = -(index * (100 / visibleCount));
-
   return (
-    <section dir="rtl" className="py-20 text-[#b87333]">
-      {/* Title */}
+    <section dir="ltr" className="py-20 text-white">
       <div className="text-center mb-10 px-4">
-        <h2 className="text-4xl font-bold">ماذا يقول العميل عنا</h2>
+        <p className="text-4xl font-bold">ماذا يقول العميل عنا</p>
+        <h2 className="text-2xl ">
+شهادات العملاء تعكس جودة خدماتنا</h2>
         <div className="w-28 h-1 bg-[#cd7f32] mx-auto mt-4"></div>
-        <p className="text-white mt-4 text-lg">شهادات العملاء تعكس جودة خدماتنا</p>
       </div>
 
-      {/* Slider container */}
-      <div className="relative overflow-hidden max-w-6xl mx-auto px-4">
-        <motion.div
-          className="flex gap-6"
-          animate={{ x: `${translateX}%` }}
-          transition={{ duration: 0.5 }}
+      <div className="overflow-hidden max-w-6xl mx-auto px-4">
+        <div
+          ref={scrollRef}
+          className="flex gap-6 w-full"
+          style={{ overflowX: "hidden", scrollBehavior: "smooth" }}
         >
-          {reviews.concat(reviews).map((review, i) => (
+          {/* clone array to make seamless continuous loop */}
+          {[...reviews, ...reviews].map((review, i) => (
             <div
               key={i}
-              className={`flex-none w-full sm:w-1/2 lg:w-1/4 bg-gradient-to-b from-[#B08B4F] to-black border shadow-md rounded-2xl p-6 text-white`}
+              className="flex-none w-full sm:w-1/2 lg:w-1/4 bg-gradient-to-b from-[#B08B4F] to-black border shadow-md rounded-2xl p-6 text-white"
             >
               <div className="flex justify-between items-center mb-3">
                 <div>
@@ -108,43 +79,8 @@ export default function Testimonials() {
               <p className="leading-relaxed">{review.text}</p>
             </div>
           ))}
-        </motion.div>
-
-        {/* Arrows */}
-        <button
-          onClick={prev}
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white border shadow-lg w-10 h-10 rounded-full flex items-center justify-center"
-        >
-          <svg
-            className="w-6 h-6"
-            viewBox="0 0 24 24"
-            stroke="black"
-            strokeWidth="2"
-            fill="none"
-          >
-            <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-
-        <button
-          onClick={next}
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white border shadow-lg w-10 h-10 rounded-full flex items-center justify-center"
-        >
-          <svg
-            className="w-6 h-6"
-            viewBox="0 0 24 24"
-            stroke="black"
-            strokeWidth="2"
-            fill="none"
-          >
-            <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
+        </div>
       </div>
-
-      <p className="text-center mt-10 text-white text-sm">
-        Google rating score: 4.6 of 5, based on 232 reviews
-      </p>
     </section>
   );
 }

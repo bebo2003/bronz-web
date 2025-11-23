@@ -20,21 +20,21 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <section className="w-full relative overflow-hidden mt-[7rem]">
+    <section className="w-screen h-screen relative overflow-hidden pt-20">
 
-      {/* SLIDER BIGGER NOW */}
-      <div className="w-full h-[80vh] relative bg-black flex items-center justify-center">
-        
+      {/* SLIDER FULLSCREEN */}
+      <div className="w-full h-full relative flex items-center justify-center">
+
         {slides.map((slide, i) => (
-          <div key={i} className="absolute inset-0 flex items-center justify-center">
+          <div key={i} className="absolute inset-0">
             <Image
               src={slide}
               alt={`slide-${i}`}
               fill
               quality={90}
               priority={i === 0}
-              style={{ objectFit: "contain" }}
-              className={`${index === i ? "opacity-100" : "opacity-0"} transition-opacity duration-700`}
+              style={{ objectFit: "cover" }} // <-- مهم هنا
+              className={`transition-opacity duration-700 ${index === i ? "opacity-100" : "opacity-0"}`}
             />
           </div>
         ))}

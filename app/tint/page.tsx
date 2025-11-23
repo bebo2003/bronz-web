@@ -78,7 +78,7 @@ export default function Tint() {
           </div>
 
           <div
-            className="font-bold text-3xl py-4 rounded-xl text-center shadow-lg"
+            className="font-bold text-2xl py-4 rounded-xl text-center shadow-lg"
             style={{ backgroundColor: "#cd7f32", color: "black" }}
           >
             850 ريال
