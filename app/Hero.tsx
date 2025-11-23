@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 
 export default function HeroSlider() {
@@ -11,22 +11,58 @@ export default function HeroSlider() {
   ];
 
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % slides.length);
     }, 4000);
     return () => clearInterval(timer);
-  }, []);
+  }, [paused, slides.length]);
+
+  // keyboard navigation (left/right)
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + slides.length) % slides.length);
+      if (e.key === "ArrowRight") setIndex((i) => (i + 1) % slides.length);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [slides.length]);
 
   return (
     <section className="w-screen h-screen relative overflow-hidden pt-20">
 
       {/* SLIDER FULLSCREEN */}
-      <div className="w-full h-full relative flex items-center justify-center">
+      <div
+        className="w-full h-full relative flex items-center justify-center"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onTouchStart={(e) => {
+          touchStartX.current = e.touches?.[0]?.clientX ?? null;
+        }}
+        onTouchEnd={(e) => {
+          const endX = e.changedTouches?.[0]?.clientX ?? null;
+          if (touchStartX.current != null && endX != null) {
+            const dx = endX - touchStartX.current;
+            if (Math.abs(dx) > 40) {
+              if (dx > 0) setIndex((i) => (i - 1 + slides.length) % slides.length);
+              else setIndex((i) => (i + 1) % slides.length);
+            }
+          }
+          touchStartX.current = null;
+        }}
+      >
 
         {slides.map((slide, i) => (
-          <div key={i} className="absolute inset-0">
+          <div
+            key={i}
+            className="absolute inset-0"
+            aria-hidden={index !== i}
+            role="group"
+          >
             <Image
               src={slide}
               alt={`slide-${i}`}
@@ -36,6 +72,16 @@ export default function HeroSlider() {
               style={{ objectFit: "cover" }} // <-- مهم هنا
               className={`transition-opacity duration-700 ${index === i ? "opacity-100" : "opacity-0"}`}
             />
+
+            {/* overlay content - responsive */}
+            {index === i && (
+              <div className="absolute inset-0 flex items-center justify-center px-6">
+                <div className="max-w-3xl text-center text-white">
+                 
+                
+                </div>
+              </div>
+            )}
           </div>
         ))}
 

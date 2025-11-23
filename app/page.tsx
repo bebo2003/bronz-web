@@ -68,7 +68,7 @@ export default function Home() {
 ];
 
   return (
-      <div>
+      <div className="overflow-hidden">
       <HeroSlider />
 
       <section className="w-full  text-[#b87333] py-20 ">
