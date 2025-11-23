@@ -42,6 +42,7 @@ export default function HeroSlider() {
 
   return (
     <section className="w-screen h-screen relative overflow-hidden lg:pt-20">
+
       <div
         className="w-full h-full relative flex items-center justify-center"
         onMouseEnter={() => setPaused(true)}
