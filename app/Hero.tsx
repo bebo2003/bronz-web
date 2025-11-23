@@ -13,6 +13,15 @@ export default function HeroSlider() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // check screen size
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (paused) return;
@@ -22,7 +31,6 @@ export default function HeroSlider() {
     return () => clearInterval(timer);
   }, [paused, slides.length]);
 
-  // keyboard navigation (left/right)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + slides.length) % slides.length);
@@ -34,8 +42,6 @@ export default function HeroSlider() {
 
   return (
     <section className="w-screen h-screen relative overflow-hidden pt-20">
-
-      {/* SLIDER FULLSCREEN */}
       <div
         className="w-full h-full relative flex items-center justify-center"
         onMouseEnter={() => setPaused(true)}
@@ -55,7 +61,6 @@ export default function HeroSlider() {
           touchStartX.current = null;
         }}
       >
-
         {slides.map((slide, i) => (
           <div
             key={i}
@@ -69,19 +74,12 @@ export default function HeroSlider() {
               fill
               quality={90}
               priority={i === 0}
-              style={{ objectFit: "cover" }} // <-- مهم هنا
+              style={{
+                objectFit: isMobile ? "contain" : "cover",
+                objectPosition: "center",
+              }}
               className={`transition-opacity duration-700 ${index === i ? "opacity-100" : "opacity-0"}`}
             />
-
-            {/* overlay content - responsive */}
-            {index === i && (
-              <div className="absolute inset-0 flex items-center justify-center px-6">
-                <div className="max-w-3xl text-center text-white">
-                 
-                
-                </div>
-              </div>
-            )}
           </div>
         ))}
 
@@ -91,15 +89,11 @@ export default function HeroSlider() {
             <button
               key={i}
               onClick={() => setIndex(i)}
-              className={`w-3 h-3 rounded-full transition ${
-                index === i ? "bg-[#CD7F32]" : "bg-white/60"
-              }`}
+              className={`w-3 h-3 rounded-full transition ${index === i ? "bg-[#CD7F32]" : "bg-white/60"}`}
             />
           ))}
         </div>
-
       </div>
-
     </section>
   );
 }

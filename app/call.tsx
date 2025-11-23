@@ -10,8 +10,8 @@ export default function Contact() {
         
 
         {/* ------- TEXT SECTION ------- */}
-        <div className="text-center  text-[#b87333]">
-          <h2 className="text-4xl font-bold  mb-5">احجز خدمة خبير اليوم!</h2>
+        <div className="text-center  text-white">
+          <h2 className="text-4xl font-bold  mb-5 text-[#B08B4F] font-bold">احجز خدمة خبير اليوم!</h2>
 
           <p className="leading-8 mb-6">
            امنح سيارتك التجربة التي تليق بها مع خدماتنا المتميزة. نحن في برورايز نؤمن أن سيارتك ليست مجرد وسيلة نقل، بل انعكاس لذوقك وأسلوب حياتك. لذلك نحرص على تقديم حلول متكاملة تحافظ على مظهرها الفاخر وأدائها العالي.
