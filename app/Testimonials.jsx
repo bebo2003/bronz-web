@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
 
 const reviews = [
   { name: "علي الشهراني", time: "1 year ago", text: "طلبت عندهم سيارتي و ما شاء الله التظليل مزبوط." },
@@ -9,7 +8,7 @@ const reviews = [
   { name: "سعيد الحربي", time: "1 year ago", text: "صراحه عزل رائع من أفضل ما يكون." },
   { name: "خالد الزهراني", time: "1 year ago", text: "حسن الاستقبال و اتقان في العمل و جودة واحترافيه. الف شكر." },
   { name: "زياد مشعل", time: "6 months ago", text: "خدمة ممتازة جدا وسريعة." },
-  { name: "عبدالرحنت محمد", time: "3 months ago", text: "أنصح الجميع بتجربة الخدمة لديهم." },
+  { name: "عبدالرحمت محمد", time: "3 months ago", text: "أنصح الجميع بتجربة الخدمة لديهم." },
 ];
 
 const Star = () => (
@@ -23,14 +22,21 @@ export default function Testimonials() {
 
   useEffect(() => {
     const scrollContainer = scrollRef.current;
-    let animationFrame;
+    if (!scrollContainer) return;
 
+    let animationFrame;
     const speed = 0.5; // pixels per frame
+
+    // clone the children enough times for seamless loop
+    const children = Array.from(scrollContainer.children);
+    const totalWidth = children.reduce((acc, child) => acc + child.offsetWidth + 24, 0); // 24 = gap-6
+
     const loop = () => {
       if (scrollContainer) {
         scrollContainer.scrollLeft += speed;
-        // reset scroll for seamless loop
-        if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
+
+        // seamless scroll by duplicating content
+        if (scrollContainer.scrollLeft >= totalWidth) {
           scrollContainer.scrollLeft = 0;
         }
       }
@@ -38,6 +44,7 @@ export default function Testimonials() {
     };
 
     animationFrame = requestAnimationFrame(loop);
+
     return () => cancelAnimationFrame(animationFrame);
   }, []);
 
@@ -45,8 +52,7 @@ export default function Testimonials() {
     <section dir="ltr" className="py-20 text-white">
       <div className="text-center mb-10 px-4">
         <p className="text-4xl font-bold">ماذا يقول العميل عنا</p>
-        <h2 className="text-2xl ">
-شهادات العملاء تعكس جودة خدماتنا</h2>
+        <h2 className="text-2xl">شهادات العملاء تعكس جودة خدماتنا</h2>
         <div className="w-28 h-1 bg-[#cd7f32] mx-auto mt-4"></div>
       </div>
 
@@ -56,8 +62,8 @@ export default function Testimonials() {
           className="flex gap-6 w-full"
           style={{ overflowX: "hidden", scrollBehavior: "smooth" }}
         >
-          {/* clone array to make seamless continuous loop */}
-          {[...reviews, ...reviews].map((review, i) => (
+          {/* repeat array multiple times for seamless loop */}
+          {[...reviews, ...reviews, ...reviews].map((review, i) => (
             <div
               key={i}
               className="flex-none w-full sm:w-1/2 lg:w-1/4 bg-gradient-to-b from-[#B08B4F] to-black border shadow-md rounded-2xl p-6 text-white"
