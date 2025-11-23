@@ -56,7 +56,7 @@ export default function PPFService() {
 
         {/* CONTENT */}
         <div className="space-y-8 bg-zinc-900/60 p-8 rounded-3xl border border-[#cd7f32]/30 shadow-lg">
-          <h1 className="text-4xl font-bold text-center tracking-wide" style={{ color: "#cd7f32" }}>
+          <h1 className="text-3xl font-bold text-center tracking-wide" style={{ color: "#cd7f32" }}>
             حماية السيارة PPF
           </h1>
 

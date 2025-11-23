@@ -36,7 +36,7 @@ export default function ServicesSection() {
       {/* ===== SECTION 2 ===== */}
       <div className="w-full py-20 px-6 md:px-14 lg:px-28 bg-[#0a0a0a]">
         <div className="max-w-[1600px] mx-auto text-center">
-          <h2 className="text-4xl font-bold text-white mb-14">
+          <h2 className="text-3xl font-bold text-white mb-14">
             نقدم خدمات متعددة
           </h2>
           <div className="w-28 h-[3px] bg-[#b87d36] mx-auto mb-14"></div>
