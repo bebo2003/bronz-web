@@ -82,40 +82,38 @@ export default function Navbar() {
             الصفحة الرئيسية
           </Link>
 
-        {/* خدماتنا Dropdown Desktop */}
-<div className="relative group">
-  <Link
-    href="/services"
-    className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${
-      pathname.startsWith("/services") ? "text-[#CD7F32]" : "text-white"
-    }`}
-  >
-    خدماتنا ▾
-  </Link>
+          {/* خدماتنا Dropdown Desktop */}
+          <div className="relative group">
+            <Link
+              href="/services"
+              className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${
+                pathname.startsWith("/services") ? "text-[#CD7F32]" : "text-white"
+              }`}
+            >
+              خدماتنا ▾
+            </Link>
 
-  {/* Dropdown Menu */}
-  <div
-  className="absolute right-0 mt-2 bg-black/90 border border-gray-600 rounded shadow-lg w-60 py-2 z-50
-    opacity-0 scale-95 invisible
-    group-hover:opacity-100 group-hover:scale-100 group-hover:visible
-    transition-all duration-300 transform origin-top"
->
-  <Link href="/ppf" className="block px-4 py-2 hover:bg-gray-800">
-    حماية السيارة PPF
-  </Link>
-  <Link href="/tint" className="block px-4 py-2 hover:bg-gray-800">
-    تظليل عازل حراري للسيارات
-  </Link>
-  <Link href="/nano" className="block px-4 py-2 hover:bg-gray-800">
-    النانو سيراميك للسيارات
-  </Link>
-  <Link href="/leather" className="block px-4 py-2 hover:bg-gray-800">
-    أرضيات جلد للسيارات
-  </Link>
-</div>
-
-</div>
-
+            {/* Dropdown Menu */}
+            <div
+              className="absolute right-0 mt-2 bg-black/90 border border-gray-600 rounded shadow-lg w-60 py-2 z-50
+                opacity-0 scale-95 invisible
+                group-hover:opacity-100 group-hover:scale-100 group-hover:visible
+                transition-all duration-300 transform origin-top"
+            >
+              <Link href="/ppf" className="block px-4 py-2 hover:bg-gray-800">
+                حماية السيارة PPF
+              </Link>
+              <Link href="/tint" className="block px-4 py-2 hover:bg-gray-800">
+                تظليل عازل حراري للسيارات
+              </Link>
+              <Link href="/nano" className="block px-4 py-2 hover:bg-gray-800">
+                النانو سيراميك للسيارات
+              </Link>
+              <Link href="/leather" className="block px-4 py-2 hover:bg-gray-800">
+                أرضيات جلد للسيارات
+              </Link>
+            </div>
+          </div>
 
           <Link href="/about" className="hover:text-[#CD7F32]">معلومات عنا</Link>
           <Link href="/contact" className="hover:text-[#CD7F32]">اتصل بنا</Link>
@@ -159,17 +157,43 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setServicesOpen((s) => !s)}
-              className="flex justify-between items-center w-full text-left"
+              className="flex justify-between items-center w-full text-left text-white font-semibold text-lg
+                         hover:text-[#CD7F32] transition-colors duration-300"
             >
               خدماتنا ▾
             </button>
             <div
               className={`flex flex-col ml-4 mt-2 overflow-hidden transition-all duration-300
-                ${servicesOpen ? "max-h-52" : "max-h-0"}`}
+                ${servicesOpen ? "max-h-96" : "max-h-0"}`}
             >
-              <Link href="/service1" className="py-1" onClick={() => setOpen(false)}>خدمة 1</Link>
-              <Link href="/service2" className="py-1" onClick={() => setOpen(false)}>خدمة 2</Link>
-              <Link href="/service3" className="py-1" onClick={() => setOpen(false)}>خدمة 3</Link>
+              <Link
+                href="/ppf"
+                className="py-2 px-2 rounded hover:bg-gray-800 transition-colors duration-300"
+                onClick={() => setOpen(false)}
+              >
+                حماية السيارة PPF
+              </Link>
+              <Link
+                href="/tint"
+                className="py-2 px-2 rounded hover:bg-gray-800 transition-colors duration-300"
+                onClick={() => setOpen(false)}
+              >
+                تظليل عازل حراري للسيارات
+              </Link>
+              <Link
+                href="/nano"
+                className="py-2 px-2 rounded hover:bg-gray-800 transition-colors duration-300"
+                onClick={() => setOpen(false)}
+              >
+                النانو سيراميك للسيارات
+              </Link>
+              <Link
+                href="/leather"
+                className="py-2 px-2 rounded hover:bg-gray-800 transition-colors duration-300"
+                onClick={() => setOpen(false)}
+              >
+                أرضيات جلد للسيارات
+              </Link>
             </div>
           </div>
 
