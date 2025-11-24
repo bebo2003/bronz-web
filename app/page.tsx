@@ -71,7 +71,7 @@ export default function Home() {
       <div className="overflow-hidden">
       <HeroSlider />
 
-      <section className="w-full  text-[#b87333] py-20 ">
+      <section className="w-full  text-[#b87333] py-15 ">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center px-6">
 
 
