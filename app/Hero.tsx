@@ -21,7 +21,7 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className="relative w-full h-[50vh] md:h-screen overflow-hidden">
+    <div className="relative w-full h-[40vh] md:h-screen overflow-hidden">
 
       {/* الخلفية البلاتر */}
       <div
