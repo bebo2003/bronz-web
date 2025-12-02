@@ -5,13 +5,13 @@ import Image2 from "../public/ارضيات جلد.webp";
 import Image3 from "../public/IMG_2499-1-926x1024.webp";
 import Image4 from "../public/نانوسيراميك.webp";
 import Image5 from "../public/ppf.webp";
-import Image6 from "../public/car2.jpg";
-import Image7 from "../public/car3.jpeg";
-import Image8 from "../public/car4.jpeg";
-import Image9 from "../public/car5.jpeg";
-import Image10 from "../public/car6.jpeg";
-import Image12 from "../public/car7.jpeg";
-import Image13 from "../public/car8.jpeg";
+import Image6 from "../public/photo6.jpg";
+import Image7 from "../public/photo2.jpg";
+import Image8 from "../public/photo11.jpg";
+import Image9 from "../public/photo4.jpg";
+import Image10 from "../public/photo5.jpg";
+import Image12 from "../public/photo8.jpg";
+import Image13 from "../public/photo7.jpg";
 import HeroSlider from "./Hero";
 import TestimonialsSlider from './Testimonials';
 import { FaWhatsapp } from "react-icons/fa";
@@ -35,7 +35,7 @@ export default function Home() {
     title: "عنوان مقالة تجريبية 2",
     description: "تفاصيل قصيرة لجذب القارئ حول مواصفات السيارة وأهم الميزات.",
     date: "26 سبتمبر 2025",
-    img: Image7,
+    img: Image13,
   },
   {
     id: 3,
@@ -272,7 +272,7 @@ export default function Home() {
       {/* HERO */}
       <section className="relative w-full h-[520px] mb-20">
         <img 
-          src={Image6.src}
+          src={Image7.src}
           className="w-full h-full object-cover opacity-60"
         />
 
@@ -286,7 +286,7 @@ export default function Home() {
           </h1>
 
           {/* Bronze Line */}
-          <div className="w-32 h-[3px] bg-[#C49A6C] mb-4"></div>
+         
 
           <p className="text-gray-300 text-lg mb-6">
             اكتشف الجيل الجديد من السيارات بتكنولوجيا متقدمة ولمسة فخامة.
@@ -301,30 +301,43 @@ export default function Home() {
 
       {/* ARTICLES GRID */}
      <section className="max-w-7xl mx-auto px-6">
-  <h2 className="text-3xl font-bold mb-10">آخر الأخبار</h2>
+  <h2 className="text-4xl font-bold mb-10 text-[#b87333] text-center">آخر الأخبار</h2>
 
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-[#b87333]">
-    {news.map(  (item) => (
-      <div
-        key={item.id}
-        className="rounded-xl overflow-hidden bg-[#1F1F1F] 
-                   hover:-translate-y-1 hover:shadow-xl 
-                   transition duration-300 shadow-lg"
-      >
+ <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-[#b87333]">
+  {news.map((item) => (
+    <div
+      key={item.id}
+      className="rounded-2xl overflow-hidden bg-gradient-to-b from-[#2A2A2A] to-[#1A1A1A]
+                 border border-[#b87333]/30 shadow-xl
+                 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+    >
+      {/* IMAGE WRAPPER */}
+      <div className="w-full h-56 bg-black flex items-center justify-center border-b border-[#b87333]/30">
         <img
           src={typeof item.img === "string" ? item.img : item.img?.src}
           alt={item.title}
-          className="w-full h-48 object-cover"
+          className="max-h-full max-w-full object-contain"
         />
-
-        <div className="p-6">
-          <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-          <p className="text-white text-sm mb-4">{item.description}</p>
-          <span className="text-[#C49A6C] text-xs">{item.date}</span>
-        </div>
       </div>
-    ))}
-  </div>
+
+      {/* TEXT CONTENT */}
+      <div className="p-6">
+        <h3 className="text-2xl font-semibold mb-3 tracking-wide text-[#d8a26e]">
+          {item.title}
+        </h3>
+
+        <p className="text-white/80 text-sm leading-relaxed mb-4">
+          {item.description}
+        </p>
+
+        <span className="text-[#C49A6C] text-xs tracking-wider">
+          {item.date}
+        </span>
+      </div>
+    </div>
+  ))}
+</div>
+
 </section>
 
 
