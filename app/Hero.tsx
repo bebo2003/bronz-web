@@ -21,15 +21,15 @@ export default function HeroSlider() {
   }, []);
 
   return (
-    <div className="relative w-full h-[40vh] md:h-screen overflow-hidden">
-
-      {/* الخلفية البلاتر */}
+    <div className="relative w-full mt-16" style={{ aspectRatio: "16/9" }}>
+      {/* الخلفية blur */}
       <div
-        className="absolute inset-0 blur-2xl scale-110 opacity-60"
+        className="absolute inset-0 blur-2xl scale-110 opacity-60 "
         style={{
           backgroundImage: `url(${slides[index]})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundSize: "contain", // بدل cover
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
       />
 
@@ -42,15 +42,27 @@ export default function HeroSlider() {
         className="object-contain relative z-10 transition-all duration-700"
       />
 
-      {/* Overlay على الديسكتوب فقط */}
-      <div className="hidden md:block absolute inset-0 bg-black/40 z-20"></div>
+      {/* Overlay على الديسكتوب */}
+      
 
-      {/* Layer خفيفة للجودة على الموبايل */}
+      {/* Overlay على الموبايل */}
       <div className="absolute inset-0 bg-black/30 z-[5] md:hidden"></div>
+
+      {/* ⭐ النقط (Dots Indicators) ⭐ */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex gap-3">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            className={`w-3 h-3 rounded-full transition-all duration-300
+              ${index === i ? "bg-white scale-125" : "bg-white/40"}
+            `}
+          />
+        ))}
+      </div>
     </div>
   );
 }
-
 
 // "use client";
 

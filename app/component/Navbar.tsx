@@ -39,12 +39,12 @@ export default function Navbar() {
       className={`fixed top-0 right-0 left-0 z-50 w-full overflow-visible transition-all duration-500 ${
         isScrolled ? "bg-black/80 backdrop-blur-md shadow-lg" : "bg-transparent"
       }`}
-      style={{ direction: "rtl" }}
+      style={{ direction: "rtl", backgroundColor: "black" }}
     >
       {/* Top Bar */}
       <div className="flex items-center justify-between px-6 text-xs md:text-sm w-full max-w-screen-xl mx-auto ">
         {/* Social Icons */}
-        <div className="hidden md:flex gap-3">
+        <div className="hidden md:flex gap-3 pt-3">
           <FaInstagram className="hover:text-[#CD7F32] cursor-pointer" />
           <FaXTwitter className="hover:text-[#CD7F32] cursor-pointer" />
           <FaYoutube className="hover:text-[#CD7F32] cursor-pointer" />
@@ -55,14 +55,14 @@ export default function Navbar() {
         </div>
 
         {/* Phone Number */}
-        <div className="flex items-center gap-2 text-[#CD7F32] font-semibold">
+        <div className="flex items-center gap-2 pt-2 text-[#CD7F32] font-semibold">
           <FaWhatsapp className="text-xl" />
           <span className="text-white">0544339334</span>
         </div>
       </div>
 
       {/* Main Navbar */}
-      <div className="flex items-center justify-between px-6 text-sm w-full max-w-screen-xl mx-auto">
+      <div className="flex items-center justify-between px-6  text-sm w-full max-w-screen-xl mx-auto">
 
         {/* Logo */}
         <img
@@ -72,7 +72,7 @@ export default function Navbar() {
         />
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center gap-6 text-lg font-semibold whitespace-nowrap">
+        <nav className="hidden md:flex items-center gap-6  text-lg font-semibold whitespace-nowrap">
           <Link
             href="/"
             className={`transition-all duration-300 hover:text-[#CD7F32] hover:scale-105 ${

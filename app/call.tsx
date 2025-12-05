@@ -13,13 +13,13 @@ export default function Contact() {
         <div className="text-center  text-white">
           <h2 className="text-4xl font-bold  mb-5 text-[#B08B4F] font-bold">احجز خدمة خبير اليوم!</h2>
 
-          <p className="leading-8 mb-6">
+          <p className="leading-8 mb-6 text-black">
            امنح سيارتك التجربة التي تليق بها مع خدماتنا المتميزة. نحن في برورايز نؤمن أن سيارتك ليست مجرد وسيلة نقل، بل انعكاس لذوقك وأسلوب حياتك. لذلك نحرص على تقديم حلول متكاملة تحافظ على مظهرها الفاخر وأدائها العالي.
 
 من خلال خبرتنا وفريقنا المتخصص، نقدّم لك خدمات احترافية تشمل:
           </p>
 
-          <ul className="space-y-3 text-right text-lg">
+          <ul className="space-y-3 text-right text-black text-lg">
             <li className="list-disc mr-5">حماية السيارة <span className="text-[#B08B4F] font-bold">PPF</span> من الخدوش والعوامل الخارجية.</li>
             <li className="list-disc mr-5">تظليل العازل الحراري للسيارات لتقليل الحرارة والحفاظ على المظهر الأنيق.</li>
             <li className="list-disc mr-5">النانو سيراميك لطبقة حماية تدوم لسنوات.</li>

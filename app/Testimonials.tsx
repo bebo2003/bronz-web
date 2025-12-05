@@ -70,8 +70,8 @@ export default function TestimonialsSlider() {
         >
           {reviews.map((review, i) => (
             <SwiperSlide key={i}>
-              <div className="bg-linear-to-b from-[#B08B4F] to-black shadow-md rounded-2xl p-6 h-full">
-                <h3 className="font-semibold text-lg">{review.name}</h3>
+              <div className="bg-linear-to-b from-[#B08B4F] to-white shadow-md rounded-2xl p-6 h-full mb-5">
+                <h3 className="font-semibold text-black text-lg">{review.name}</h3>
                 <p className="text-sm opacity-70">{review.time}</p>
 
                 <div className="flex gap-1 my-3">
