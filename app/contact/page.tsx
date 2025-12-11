@@ -118,7 +118,7 @@ export default function ContactSection() {
  <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.870963897571!2d46.82690087478764!3d24.75484407798925!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2fabdbf9e446f3%3A0x19d384c9a094d0e!2sBronze%20cover%20-%20%D8%A8%D8%B1%D9%88%D9%86%D8%B2%20%D9%83%D9%88%D9%81%D8%B1!5e0!3m2!1sar!2seg!4v1733772000000!5m2!1sar!2seg"
   className="w-full h-full border-0"
-  allowFullScreen=""
+  allowFullScreen
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
 />
