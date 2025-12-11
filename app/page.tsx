@@ -242,14 +242,7 @@ export default function Home() {
 
       <TestimonialsSlider />
       <ContactSection />
-      <a
-  href="https://wa.me/966532164658" // غير الرقم برقمك على الواتساب بصيغة دولية بدون + أو صفر بادئ
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50"
->
-  <FaWhatsapp className="text-3xl" />
-</a>
+  
     </div>
   );
 }

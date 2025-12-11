@@ -2,6 +2,7 @@ import "./globals.css";
 import type { ReactNode } from "react";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export const metadata = {
   title: "My App",
@@ -15,7 +16,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Navbar />
 
         <main className="min-h-screen">{children}</main>
-
+    <a
+  href="https://wa.me/966532164658" // غير الرقم برقمك على الواتساب بصيغة دولية بدون + أو صفر بادئ
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform z-50"
+>
+  <FaWhatsapp className="text-3xl" />
+</a>
         <Footer />
       </body>
     </html>

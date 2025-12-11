@@ -9,7 +9,7 @@ import Testimonials from "../Testimonials";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="w-full">
+    <section id="about" className="w-full ">
       {/* ===== HERO ===== */}
     <div className="relative w-full h-screen">
   <Image
@@ -53,27 +53,27 @@ export default function AboutSection() {
 
 
           {/* TEXT */}
-          <div className="flex-1 text-right">
+          <div className="flex-1 text-right ">
             <h2 className="text-3xl font-bold text-[#b87d36] mb-6">
               مرحبًا بكم في <span >برو رايز</span> شركة حماية السيارات
             </h2>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
               لقد حملت سيارتك حمل احلامك، فهي صديق الرحلات الطويلة ووجهات الليل المتاخرة أو متعة يوم الاحد البسيطة...
               نحن ندرك كل تلك الذكريات، ولذلك نحن هنا لحمايتها.
             </p>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
               في مركز برو رايز للحماية، ندرك هذا الارتباط العميق؛ لذلك نحن لا نحمي سيارتك فحسب، بل نحمي ايضا
               الاحساس والفخر الذي تستمده منها.
             </p>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
               خدماتنا من العزل الحراري، افلام حماية الطلاء، والتظليل الاحترافي... كلها تقدم لوحة جديدة من
               الرفاهية والراحة.
             </p>
 
-            <p className="text-white leading-8">
+            <p className="text-black leading-8">
               احجز الآن مع برو رايز وتمتع بحماية تدوم وجمالية فريدة.
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function AboutSection() {
                حماية طلاء السيارة
             </h2>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
               ان سيارتك ليست مجرد مركبة، بل هي مصدر فخر واعتزاز، لكن كل خدش أو شق أو بهتان في الطلاء قد يجعلك تشعر بخسارة شخصية. في برو رايز لحماية السيارات ندرك تمامًا قيمة سيارتك بالنسبة لك، ولهذا نقدم أفضل حلول حماية الطلاء للحفاظ على مظهرها خاليًا من العيوب..
             </p>
 
@@ -144,7 +144,7 @@ export default function AboutSection() {
               تظليل عازل حراري
             </h2>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
               إن سيارتك ليست مجرد مركبة؛ إنها مصدر فخر وامتداد لشخصيتك، لكن كل خدش أو بهتان في الطلاء قد يجعلك تشعر بخسارة جزء من هذا الفخر. في برو رايز لحماية السيارات ندرك جيدًا قيمة سيارتك بالنسبة لك، ولهذا نقدم حلولًا متخصصة للحفاظ على مظهرها خاليًا من العيوب..
             </p>
 
@@ -180,7 +180,7 @@ export default function AboutSection() {
              نانو سيراميك
             </h2>
 
-            <p className="text-white leading-8 mb-3">
+            <p className="text-black leading-8 mb-3">
              نقدم لك تقنية النانو سيراميك المتطورة، التي تُشكل درعًا قويًا ومرنًا ضد الخدوش، والأشعة الضارة، والملوثات البيئية، لتمنحك ليس مجرد حماية، بل تجربة متجددة مع مظهر سيارتك الذي تحبه. ومع أسعارنا التنافسية وقيمتنا الاستثنائية، نضمن لك أن استثمارك في النانو سيراميك سيعود عليك بجمال وحماية تدوم لسنوات.ا.
             </p>
 

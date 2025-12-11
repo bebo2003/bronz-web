@@ -13,6 +13,7 @@ import {
   FaLinkedin,
   FaPinterest,
   FaTiktok,
+  FaSnapchat
 } from "react-icons/fa6";
 import { HiMenu, HiX } from "react-icons/hi";
 
@@ -45,19 +46,57 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6 text-xs md:text-sm w-full max-w-screen-xl mx-auto ">
         {/* Social Icons */}
         <div className="hidden md:flex gap-3 pt-3">
-          <FaInstagram className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaXTwitter className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaYoutube className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaFacebook className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaLinkedin className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaPinterest className="hover:text-[#CD7F32] cursor-pointer" />
-          <FaTiktok className="hover:text-[#CD7F32] cursor-pointer" />
+        <a
+  href="https://www.instagram.com/bronzecoverksa/?igsh=MW9taTQ4MjVuZHRobg%3D%3D&utm_source=qr#"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaInstagram className="hover:text-[#CD7F32] cursor-pointer" />
+</a>
+
+<a
+  href="https://x.com/bronzecoverksa?s=21"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaXTwitter className="hover:text-[#CD7F32] cursor-pointer" />
+</a>
+
+
+
+<a
+  href="https://www.facebook.com/people/Bronze-Cover/61577951902863/?mibextid=wwXIfr&rdid=wMXGUuvpRBYTrso4&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F16mG7gwG4A%2F%3Fmibextid%3DwwXIfr"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaFacebook className="hover:text-[#CD7F32] cursor-pointer" />
+</a>
+
+<a
+  href="https://www.snapchat.com/@bronzecoverksa?invite_id=2AQS-zxI&locale=en_EG&share_id=Exrf6Tr-RGuMfT81RdFCeQ&sid=698d7eeb923f41e295974cb9f461b2d2"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaSnapchat className="hover:text-[#CD7F32] cursor-pointer" />
+</a>
+
+
+
+
+<a
+  href="https://www.tiktok.com/@bronzecoverksa?is_from_webapp=1&sender_device=pc"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaTiktok className="hover:text-[#CD7F32] cursor-pointer" />
+</a>
+
         </div>
 
         {/* Phone Number */}
         <div className="flex items-center gap-2 pt-2 text-[#CD7F32] font-semibold">
           <FaWhatsapp className="text-xl" />
-          <span className="text-white">0544339334</span>
+          <span className="text-white">0532164658</span>
         </div>
       </div>
 
@@ -121,7 +160,7 @@ export default function Navbar() {
 
         {/* Call Button (Desktop) */}
         <a
-          href="https://wa.me/966544339334"
+          href="https://wa.me/966532164658"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 px-6 py-2 font-bold text-white bg-gradient-to-r from-[#B08B4F] to-black rounded-full"
