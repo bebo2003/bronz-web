@@ -13,8 +13,8 @@ export default function Footer() {
             className="w-33 mb-4"
           />
           <p className="leading-8 text-gray-300 text-sm">
-            في برو رايز، نحن شغوفون بمساعدتك في الحفاظ على سيارتك في حالة ممتازة، يقع مقرنا في المدينة المنورة، 
-            ونقدم خدمات متخصصة مثل حماية السيارات، وتظليل عازل حراري، وحماية نانو سيراميك.
+           🔰 Bronze Cover | برونز كوفر
+🛡️ حماية سيارات فاخرة بتقنيات عالمية.
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-bold text-[#B08B4F] mb-4">روابط سريعة</h3>
           <ul className="space-y-3 text-sm">
-            <li><a href="#" className="text-[#B08B4F] hover:underline">الصفحة الرئيسية</a></li>
+            <li><a href="" className="text-[#B08B4F] hover:underline">الصفحة الرئيسية</a></li>
             <li><a href="#" className="text-[#B08B4F] hover:underline">حماية السيارة PPF</a></li>
             <li><a href="#" className="text-[#B08B4F] hover:underline">تظليل العازل الحراري</a></li>
             <li><a href="#" className="text-[#B08B4F] hover:underline">النانو سيراميك للسيارات</a></li>
@@ -59,7 +59,7 @@ export default function Footer() {
           <p className="text-gray-300 text-sm mb-4 leading-7">
            الرياض – طريق خريص، بجوار وكالة رنج روفر.</p>
           <h3 className="text-xl font-bold text-[#B08B4F] mt-6 mb-3">اتصل بنا</h3>
-          <p className="text-gray-300"> 0532164658</p>
+          <p className="text-gray-300"> +966532164658</p>
           
         </div>
 
@@ -67,7 +67,7 @@ export default function Footer() {
 
       {/* --- Lower Bar --- */}
       <div className="text-center text-gray-400 text-sm border-t border-white/10 mt-10 pt-6">
-        جميع الحقوق محفوظة © شركة برو رايز
+        جميع الحقوق محفوظة © شركة BRONZE COVER
       </div>
     </footer>
   );

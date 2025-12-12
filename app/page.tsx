@@ -112,8 +112,14 @@ export default function Home() {
             transition={{ delay: 0.5, duration: 0.6 }}
             whileHover={{ scale: 1.07 }}
           >
-            <span> تواصل معنا</span>
-            <FaWhatsapp className="text-xl" />
+            <a
+          href="https://wa.me/966532164658"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:inline-flex items-center gap-2 px-6 py-2 font-bold text-white from-[#B08B4F] to-black rounded-full"
+        >
+          اتصل الآن <FaWhatsapp className="text-xl" />
+        </a>
 
             <motion.span
               className="absolute inset-0 bg-white opacity-20 blur-xl"

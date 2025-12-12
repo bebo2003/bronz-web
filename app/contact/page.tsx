@@ -51,11 +51,9 @@ export default function ContactSection() {
     </div>
 
     <p className="text-gray-300 mt-3 leading-relaxed">
-      طريق الأمير محمد بن عبدالعزيز، بني حارثة، مقابل بلدية أحد، المدينة المنورة
+الرياض – طريق خريص، بجوار وكالة رنج روفر.
     </p>
-    <p className="text-gray-300 leading-relaxed mt-1">
-      طريق السلام، مقابل البيك المدينة المنورة 42353
-    </p>
+    
 
     <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
       تواصل معنا
@@ -74,11 +72,14 @@ export default function ContactSection() {
       </div>
     </div>
 
-    <p className="text-gray-300 mt-3">info@prorays.me</p>
+    <p className="text-gray-300 mt-3">bronzecover.sa@gmail.com</p>
 
-    <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
-      تواصل معنا
-    </button>
+    <a
+  href="mailto:bronzecover.sa@gmail.com"
+  className="mt-5 inline-block border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition"
+>
+  تواصل معنا
+</a>
 
     <p className="text-gray-500 text-sm mt-2"></p>
   </div>
@@ -93,11 +94,17 @@ export default function ContactSection() {
       </div>
     </div>
 
-    <p className="text-gray-300 mt-3">0544339334</p>
+    <p className="text-gray-300 mt-3">+966532164658</p>
 
-    <button className="mt-5 border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition">
-      تواصل معنا
-    </button>
+<a
+  href="https://wa.me/966532164658"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="mt-5 inline-block border border-[#CD7F32] rounded-full px-6 py-2 font-medium text-[#CD7F32] hover:bg-[#CD7F32] hover:text-black transition"
+>
+  تواصل معنا
+</a>
+
 
     <p className="text-gray-500 text-sm mt-2"></p>
   </div>

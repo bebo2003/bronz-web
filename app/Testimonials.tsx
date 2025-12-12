@@ -82,7 +82,7 @@ export default function TestimonialsSlider() {
                   ))}
                 </div>
 
-                <p className="leading-relaxed">{review.text}</p>
+                <p className="leading-relaxed text-black">{review.text}</p>
               </div>
             </SwiperSlide>
           ))}

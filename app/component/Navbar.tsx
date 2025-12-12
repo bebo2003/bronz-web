@@ -96,7 +96,7 @@ export default function Navbar() {
         {/* Phone Number */}
         <div className="flex items-center gap-2 pt-2 text-[#CD7F32] font-semibold">
           <FaWhatsapp className="text-xl" />
-          <span className="text-white">0532164658</span>
+          <span className="text-white">+966532164658</span>
         </div>
       </div>
 
